@@ -1,22 +1,12 @@
 <script>
-    import { isLoggedIn } from "./store.js"; 
-    import UserPasswordInput from "./components/UserPasswordInput.svelte";
-    import Welcome from "./components/Welcome.svelte";
+    import { Router, Route } from "svelte-routing";
+    import Home from "./routes/Home.svelte";
+    import Gui from "./routes/Gui.svelte";
+    import Api from "./routes/Api.svelte";
 </script>
 
-{#if $isLoggedIn}
-    <Welcome />
-{:else}
-    <p>TimeValue Store</p>
-    <UserPasswordInput />
-{/if}
-
-<style>
-  p {
-    font-size: 2em;
-    font-weight: bold;
-    font-style: italic;
-    font-weight: 1000;
-    margin-bottom: 0.2em;
-  }
-</style>
+<Router basepath="/">
+    <Route path="/" component={Home} exact />
+    <Route path="/tvs/gui" component={Gui} />
+    <Route path="/tvs/api" component={Api} />
+</Router>

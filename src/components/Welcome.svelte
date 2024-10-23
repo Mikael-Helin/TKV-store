@@ -18,12 +18,13 @@
 </script>
 
 {#if get(userId) === null}
-    <p>Error, userId is null</p>
+    <p>Unexpected Error: userId is null</p>
 {:else if get(userId) === ""}
-    <p>Error, userId is empty</p>
+    <p>Unexpected Error: userId is empty</p>
 {:else if !isLoggedIn}
-    <p>Error, user is not logged in, and you should not see this message</p>
+    <p>Unexptected Error: user is not logged in</p>
 {/if}
+
 <div>
     <h1>Welcome, {$userId}!</h1>
     <ul>You administer following accounts:
